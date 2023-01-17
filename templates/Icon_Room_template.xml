@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<asset assetType="sceneObject">
+	<!--comics: 2-->
+	<!--effectBehaviour: 1-->
+	<!--fixes: 5-->
+	<!--gears: 1-->
+	<!--m3c: 29-->
+	<!--physics: 2-->
+	<!--quests: 1-->
+	<!--roomDesign: 7-->
+	<!--vso: 69-->
+	<!--windowManagement: 2-->
+	<!--ws: 7-->
+	<!--wsGround: 3-->
+	<!--wsGroupAnimationController: 1-->
+	<!--wsInteractiveScene: 1-->
+	<!--wsMainHUDItemEffect: 1-->
+	<!--wsQuiz: 1-->
+	<!--wsSceneObjectRef: 19-->
+	<root name="image1">
+		<behaviours type="anchoredElement">
+			<ptr>
+				<horizontalAnchor nrp_2="1.0" offset_1="25.0" offset_2="-47.0" />
+				<normalizedPivot x="0.5" y="0.5" />
+				<uid entityId="1547366160" />
+				<verticalAnchor nrp_2="1.0" offset_1="38.0" offset_2="-76.0" />
+			</ptr>
+		</behaviours>
+		<component type="image">
+			<ptr isInputTransparent="true">
+				<spriteOrTexture id="Room_MountainChalet_icon_balks_1" id..editor..ref="assetType@SpriteOrTexture; raw@true" />
+				<uid entityId="1775641841" />
+			</ptr>
+		</component>
+		<transform />
+		<uid entityId="2983900866" />
+	</root>
+</asset>

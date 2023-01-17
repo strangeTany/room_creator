@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<asset assetType="sceneObject" changesEnabled="Disabled">
+	<!--comics: 2-->
+	<!--effectBehaviour: 1-->
+	<!--fixes: 5-->
+	<!--gears: 1-->
+	<!--m3c: 29-->
+	<!--physics: 2-->
+	<!--quests: 1-->
+	<!--roomDesign: 7-->
+	<!--vso: 69-->
+	<!--windowManagement: 2-->
+	<!--ws: 7-->
+	<!--wsGround: 3-->
+	<!--wsGroupAnimationController: 1-->
+	<!--wsInteractiveScene: 1-->
+	<!--wsMainHUDItemEffect: 1-->
+	<!--wsQuiz: 1-->
+	<!--wsSceneObjectRef: 19-->
+	<root name="Room_a3_MountainChalet_Window">
+		<behaviours type="layout">
+			<ptr>
+				<uid entityId="767572957" />
+			</ptr>
+		</behaviours>
+		<behaviours type="input">
+			<ptr>
+				<uid entityId="2857741457" />
+			</ptr>
+		</behaviours>
+		<behaviours type="resourceGroupsControl">
+			<ptr loadMode="Async">
+				<resourceGroups _v_="Areal3_Room_MountainChalet" />
+				<resourceGroups _v_="Match3WaterCaustics" />
+				<uid entityId="445057171" />
+			</ptr>
+		</behaviours>
+		<behaviours type="customScreenBoard">
+			<ptr cameraZoom="0.86" fitOnSafeArea="true" fitPolicy="ShowAll" isAutoUpdatable="true" refferenceH="750" refferenceW="1334">
+				<cameraPosition x="-431.918" y="4212.2" />
+				<uid entityId="939720312" />
+			</ptr>
+		</behaviours>
+		<children name="room">
+			<behaviours type="RoomBuildingMainBehaviour">
+				<ptr hotSpotPrefab="UI_RD_DesignSpot" purchasedPinPrefab="UI_RoomHUD_item_icon_redesign" repairIconPrefab="UI_RD_DesignPanel">
+					<cameraListRef path="1386220325" />
+					<finalRewindEffectSceneRef path="1009138094" />
+					<fullScreenRedesignButton path="2629831697" />
+					<furnitureNodeRef path="1328503326/3928816045" />
+					<iconsNode path="3736832039" />
+					<pressOutButton path="3110087300" />
+					<redesignTapEffectRef path="3120420636/1483335954" />
+					<roomMainScenesPrefab id="Room_a3_MountainChalet_MainScenes" id..editor..ref="assetType@sceneObject" />
+					<uid entityId="937186272" />
+				</ptr>
+			</behaviours>
+			<behaviours type="anchoredElement">
+				<ptr autoAttachToParent="true">
+					<horizontalAnchor nrp_2="1.0" />
+					<normalizedPivot x="0.5" y="0.5" />
+					<uid entityId="2052421325" />
+					<verticalAnchor nrp_2="1.0" />
+				</ptr>
+			</behaviours>
+			<behaviours type="roomDesignFinalRewindEffectController">
+				<ptr>
+					<characterSkinsRootRef path="3750650103" />
+					<furnitureRef path="1328503326/3928816045" />
+					<sceneRef path="4210532409" />
+					<uid entityId="1009138094" />
+				</ptr>
+			</behaviours>
+			<behaviours type="iCSController">
+				<ptr>
+					<uid entityId="4210532409" />
+				</ptr>
+			</behaviours>
+			<children name="Furniture">
+				<behaviours type="anchoredElement">
+					<ptr autoAttachToParent="true">
+						<horizontalAnchor nrp_2="1.0" />
+						<normalizedPivot x="0.5" y="0.5" />
+						<uid entityId="50299603" />
+						<verticalAnchor nrp_2="1.0" />
+					</ptr>
+				</behaviours>
+				<behaviours type="roomDesignCameraController">
+					<ptr duration="0.55">
+						<bounds xEnd="200.0" xStart="-200.0" yEnd="33.0" yStart="-90.0" />
+						<extraWideScreenBounds xEnd="20.0" xStart="-50.0" yEnd="30.0" yStart="-110.0" />
+						<overrideZoomCurve />
+						<tweenCurve trackId="curve" />
+						<uid entityId="1786998915" />
+					</ptr>
+				</behaviours>
+				<transform />
+				<uid entityId="1349909748" />
+			</children>
+			<children name="Taps">
+				<behaviours type="fullScreenRect">
+					<ptr isAutoUpdatable="true" useSaveArea="true">
+						<uid entityId="2554463472" />
+					</ptr>
+				</behaviours>
+				<behaviours type="layout">
+					<ptr>
+						<uid entityId="3488244203" />
+					</ptr>
+				</behaviours>
+				<children name="IconsTapOut">
+					<behaviours type="anchoredElement">
+						<ptr>
+							<anchorTarget path="2554463472" />
+							<horizontalAnchor nrp_2="1.0" />
+							<normalizedPivot x="0.5" y="0.5" />
+							<uid entityId="1071906037" />
+							<verticalAnchor nrp_2="1.0" />
+						</ptr>
+					</behaviours>
+					<behaviours type="button">
+						<ptr isEnabled="false">
+							<uid entityId="3110087300" />
+						</ptr>
+					</behaviours>
+					<component type="colorRect">
+						<ptr isInputTransparent="true">
+							<uid entityId="14469648" />
+						</ptr>
+					</component>
+					<sorting type="priority">
+						<ptr priorityValue="200" relativePriority="0">
+							<uid entityId="4178476111" />
+						</ptr>
+					</sorting>
+					<transform />
+					<uid entityId="213763778" />
+				</children>
+				<children name="RedesignTap">
+					<behaviours type="anchoredElement">
+						<ptr>
+							<anchorTarget path="2554463472" />
+							<horizontalAnchor nrp_2="1.0" />
+							<normalizedPivot x="0.5" y="0.5" />
+							<uid entityId="2636489204" />
+							<verticalAnchor nrp_2="1.0" />
+						</ptr>
+					</behaviours>
+					<behaviours type="button">
+						<ptr>
+							<uid entityId="2629831697" />
+						</ptr>
+					</behaviours>
+					<component type="colorRect">
+						<ptr isInputTransparent="true">
+							<uid entityId="2418225882" />
+						</ptr>
+					</component>
+					<sorting type="priority">
+						<ptr priorityValue="200" relativePriority="0">
+							<uid entityId="2558996222" />
+						</ptr>
+					</sorting>
+					<transform />
+					<uid entityId="497513814" />
+				</children>
+				<transform>
+					<position x="-50.0" y="-50.0" z="0.0" />
+				</transform>
+				<uid entityId="3232968228" />
+			</children>
+			<children name="FX">
+				<transform>
+					<position x="539.0" y="385.0" z="0.0" />
+				</transform>
+				<uid entityId="2464917922" />
+			</children>
+			<children name="Area">
+				<behaviours type="anchoredElement">
+					<ptr>
+						<anchorTarget path="2052421325" />
+						<horizontalAnchor nrp_2="1.0" />
+						<uid entityId="2471980562" />
+						<verticalAnchor nrp_2="1.0" />
+					</ptr>
+				</behaviours>
+				<children name="Icons">
+					<behaviours type="anchoredElement">
+						<ptr>
+							<anchorTarget path="2471980562" />
+							<horizontalAnchor nrp_2="1.0" />
+							<normalizedPivot x="0.5" y="0.5" />
+							<uid entityId="1985189387" />
+							<verticalAnchor nrp_2="1.0" />
+						</ptr>
+					</behaviours>
+					<sorting type="priority">
+						<ptr priorityValue="201" relativePriority="1">
+							<uid entityId="2764230940" />
+						</ptr>
+					</sorting>
+					<transform />
+					<uid entityId="3736832039" />
+				</children>
+				<children name="ChoosePanel" visibility="false">
+					<behaviours type="anchoredElement">
+						<ptr>
+							<anchorTarget path="2471980562" />
+							<horizontalAnchor nrp_2="1.0" />
+							<uid entityId="1669862906" />
+							<verticalAnchor nrp_2="1.0" offset_1="-0.000228882" />
+						</ptr>
+					</behaviours>
+					<behaviours type="RoomDesignSkinSelectorBehaviour">
+						<ptr cancelAnimOnParent="false" okAnimOnParent="false" panelAnimOnParent="false">
+							<cancelButtonRef path="2537210154/857984250/2460616112" />
+							<containerRef path="2537210154/2194864959/1877072918" />
+							<hideCancelButtonAnim id="edit_panel_hide" id..editor..ref="assetType@animationClip" />
+							<hideOkButtonAnim id="edit_panel_hide" id..editor..ref="assetType@animationClip" />
+							<hidePanelButtonAnim id="edit_panel_hide" id..editor..ref="assetType@animationClip" />
+							<okButtonRef path="2537210154/3896942374/973301255" />
+							<panelRef path="2537210154/2194864959/1877072918" />
+							<pressOutButton path="3110087300" />
+							<selectPrefab id="UI_RoomEditPanelButton" id..editor..ref="assetType@sceneObject" />
+							<showCancelButtonAnim id="edit_panel_show" id..editor..ref="assetType@animationClip" />
+							<showOkButtonAnim id="edit_panel_show" id..editor..ref="assetType@animationClip" />
+							<showPanelButtonAnim id="edit_panel_show" id..editor..ref="assetType@animationClip" />
+							<uid entityId="3162378766" />
+						</ptr>
+					</behaviours>
+					<children name="UI_ChoosePanel">
+						<link objId="2537210154">
+							<id id="UI_ChoosePanel" id..editor..ref="assetType@sceneObject" />
+						</link>
+						<transform />
+						<uid entityId="4294316959" />
+					</children>
+					<sorting type="priority">
+						<ptr priorityValue="202" relativePriority="2">
+							<uid entityId="2264643948" />
+						</ptr>
+					</sorting>
+					<transform />
+					<uid entityId="3647753901" />
+				</children>
+				<children name="comicsCamera">
+					<behaviours type="input">
+						<ptr>
+							<uid entityId="842756368" />
+						</ptr>
+					</behaviours>
+					<behaviours type="layout">
+						<ptr>
+							<uid entityId="585336248" />
+						</ptr>
+					</behaviours>
+					<behaviours type="anchoredElement">
+						<ptr autoAttachToParent="true">
+							<horizontalAnchor nrp_1="0.5" offset_1="-775.581" offset_2="1334.0" />
+							<uid entityId="123644968" />
+							<verticalAnchor nrp_1="0.5" offset_1="-436.047" offset_2="760.0" />
+						</ptr>
+					</behaviours>
+					<behaviours type="roomDesignCameraList">
+						<ptr>
+							<cameraControllerRef path="1786998915" />
+							<garmentCameras garmentType="NotGarment" type="Default">
+								<cameraProperties path="557428929" />
+							</garmentCameras>
+							<uid entityId="1386220325" />
+						</ptr>
+					</behaviours>
+					<children name="cam_default">
+						<behaviours type="roomDesignCameraTargetProperties">
+							<ptr zoomFactor="0.86">
+								<horizontalBlurProperty />
+								<screenBoard path="939720312" />
+								<targetNode path="4188441345" />
+								<uid entityId="557428929" />
+								<verticalBlurProperty />
+							</ptr>
+						</behaviours>
+						<behaviours type="anchoredElement">
+							<ptr autoAttachToParent="true">
+								<horizontalAnchor nrp_1="0.5" />
+								<uid entityId="1285377710" />
+								<verticalAnchor nrp_1="0.5" offset_1="20.8942" />
+							</ptr>
+						</behaviours>
+						<transform />
+						<uid entityId="2367773330" />
+					</children>
+					<transform />
+					<uid entityId="1458605232" />
+				</children>
+				<transform />
+				<uid entityId="2430421406" />
+			</children>
+			<children name="RedesignEffect" visibility="false">
+				<link objId="3120420636">
+					<id id="RoomRedesignEffect" id..editor..ref="assetType@sceneObject" />
+				</link>
+				<transform>
+					<position x="-332.89" y="24.4601" z="0.0" />
+				</transform>
+				<uid entityId="565526242" />
+			</children>
+			<children name="Sounds">
+				<children name="Music">
+					<behaviours type="sound">
+						<ptr Looped="true" restartOnEnable="true">
+							<uid entityId="2326437037" />
+						</ptr>
+					</behaviours>
+					<transform />
+					<uid entityId="3782919594" />
+				</children>
+				<transform />
+				<uid entityId="3673665824" />
+			</children>
+			<transform />
+			<uid entityId="794978625" />
+		</children>
+		<sorting type="priority">
+			<ptr priorityValue="200">
+				<uid entityId="3711596712" />
+			</ptr>
+		</sorting>
+		<transform />
+		<uid entityId="3698126243" />
+	</root>
+</asset>
