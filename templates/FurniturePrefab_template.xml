@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<asset assetType="sceneObject" changesEnabled="Disabled">
+	<!--comics: 2-->
+	<!--effectBehaviour: 1-->
+	<!--fixes: 5-->
+	<!--gears: 1-->
+	<!--m3c: 29-->
+	<!--physics: 2-->
+	<!--quests: 1-->
+	<!--roomDesign: 7-->
+	<!--vso: 69-->
+	<!--windowManagement: 2-->
+	<!--ws: 7-->
+	<!--wsGround: 3-->
+	<!--wsGroupAnimationController: 1-->
+	<!--wsInteractiveScene: 1-->
+	<!--wsMainHUDItemEffect: 1-->
+	<!--wsQuiz: 1-->
+	<!--wsSceneObjectRef: 19-->
+	<root name="20_binoculars">
+		<behaviours type="anchoredElement">
+			<ptr autoAttachToParent="true">
+				<horizontalAnchor nrp_1="0.5" />
+				<uid entityId="2760923012" />
+				<verticalAnchor nrp_1="0.5" />
+			</ptr>
+		</behaviours>
+		<transform />
+		<uid entityId="3036706651" />
+	</root>
+</asset>

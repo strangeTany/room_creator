@@ -38,8 +38,85 @@ def get_uid():
 
 
 def generate_furniture_prefabs():
+    os.makedirs('./room/FurniturePrefabs')
     for i in range(len(room_ids)):
-        purchase = room_ids[i]
+        purchase = list(room_ids)[i]
+        shutil.copy2('templates/FurniturePrefab_template.xml',
+                     f'room/FurniturePrefabs/{room_name}_{purchase}.xml')
+        tree = ET.parse(f'room/FurniturePrefabs/{room_name}_{purchase}.xml')
+        root = tree.getroot()
+        root[0].attrib["name"] = f'{i}_{purchase}'
+        root[0][0][0][1].attrib["entityId"] = str(get_uid())
+        purchase_uid = str(get_uid())
+        root[0][2].attrib['entityId'] = purchase_uid
+        redesign_node = False
+        redesign_uid = 0
+        for j in range(len(room_ids[purchase])):
+            skin = room_ids[purchase][j]
+            skin_uid = create_empty_img(root, j)
+            if skin[0] and not redesign_node:
+                redesign_node = True
+                redesign_uid = str(get_uid())
+        if redesign_node:
+            create_redesign_node(root, redesign_uid)
+        tree.write(f'room/FurniturePrefabs/{room_name}_{purchase}.xml')
+
+
+def create_anchored_element(root):
+    ET.SubElement(root, 'behaviours')
+    anchored_element = root[0]
+    anchored_element.attrib['type'] = "anchoredElement"
+    ET.SubElement(anchored_element, 'ptr')
+    anchored_element[0].attrib['attachToParentInStart'] = 'true'
+    anchored_element[0].attrib['autoAttachToParent'] = 'true'
+    ET.SubElement(anchored_element[0], 'horizontalAnchor')
+    anchored_element[0][0].attrib['nrp_1'] = '0.5'
+    ET.SubElement(anchored_element[0], 'normalizedPivot')
+    anchored_element[0][1].attrib['x'] = '0.5'
+    anchored_element[0][1].attrib['y'] = '0.5'
+    ET.SubElement(anchored_element[0], 'uid')
+    anchored_element[0][2].attrib['entityId'] = str(get_uid())
+    ET.SubElement(anchored_element[0], 'verticalAnchor')
+    anchored_element[0][3].attrib['nrp_1'] = '0.5'
+
+
+def create_empty_img(root, idx):
+    ET.SubElement(root[0], 'children')
+    img_node = root[0][idx + 3]
+    img_node.attrib['name'] = f'img_{idx}'
+    img_node.attrib['visibility'] = f'false'
+    create_anchored_element(img_node)
+    ET.SubElement(img_node, 'transform')
+    ET.SubElement(img_node, 'uid')
+
+    img_uid = str(get_uid())
+    img_node[2].attrib['entityId'] = img_uid
+    return img_uid
+
+
+def create_redesign_node(root, uid):
+    ET.SubElement(root[0], 'children')
+    redesign_node = root[0][-1]
+    redesign_node.attrib['name'] = 'redesign_spot'
+
+    create_anchored_element(redesign_node)
+
+    ET.SubElement(redesign_node, 'behaviours')
+    redesign_node[1].attrib['type'] = 'RoomDesignEditIconAngle'
+    ET.SubElement(redesign_node[1], 'ptr')
+    ET.SubElement(redesign_node[1][0], 'uid')
+    redesign_node[1][0][0].attrib['entityId'] = str(get_uid())
+
+    ET.SubElement(redesign_node, 'sorting')
+    redesign_node[2].attrib['type'] = 'priority'
+    ET.SubElement(redesign_node[2], 'ptr')
+    redesign_node[2][0].attrib['priorityValue'] = '302'
+    ET.SubElement(redesign_node[2][0], 'uid')
+    redesign_node[2][0][0].attrib['entityId'] = str(get_uid())
+
+    ET.SubElement(redesign_node, 'transform')
+    ET.SubElement(redesign_node, 'uid')
+    redesign_node[-1].attrib['entityId'] = uid
 
 
 def generate_choose_icons():
@@ -65,10 +142,11 @@ def create_window_prefab():
 
 
 if __name__ == '__main__':
-    os.makedirs('./room')
-    shutil.copy2('templates/Room_aN_RoomName_Window_template.xml', window_prefab)
-    window = create_window_prefab()
+    # os.makedirs('./room')
+    # shutil.copy2('templates/Room_aN_RoomName_Window_template.xml', window_prefab)
+    # window = create_window_prefab()
     room_ids = get_purchase_ids()
-    generate_choose_icons()
+    generate_furniture_prefabs()
+    # generate_choose_icons()
 
-    print(window[0][4][7][2][1][0])
+    print()
