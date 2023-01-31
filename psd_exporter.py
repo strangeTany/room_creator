@@ -21,7 +21,7 @@ def decoration_export():
         os.makedirs(os.path.join(PATH, f'{FILENAME}_export', group.name))
         for layer in group:
             resize_value = 2
-            if copy in layer.name.lower():
+            if copy in layer.name:
                 continue
             if shadow in layer.name:
                 resize_value = 4
