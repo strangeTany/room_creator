@@ -1,17 +1,25 @@
+import argparse
 import os
 import shutil
 import xml
 import xml.etree.ElementTree as ET
 import random
 
-room_name = 'MountainChalet'
-areal = 3
+parser = argparse.ArgumentParser()
+parser.add_argument('room_name', type=str, help='Name of room')
+parser.add_argument('areal', type=int, help='Number of areal')
+args = parser.parse_args()
+
+room_name = args.room_name
+areal = args.areal
 uids = []
-window_prefab = f'room/Room_a{areal}_{room_name}_Window.xml'
+# window_prefab = f'room/Room_a{areal}_{room_name}_Window.xml'
+path_to_vso = f'../../base1/Areal{areal}_Room_{room_name}/assets/Areal{areal}_Room_{room_name}/vso'
+window_prefab = f'{path_to_vso}/Room_a{areal}_{room_name}_Window.xml'
 
 
 def get_purchase_ids():
-    tree = ET.parse(f'vso/{room_name}.xml')
+    tree = ET.parse(f'../../base/assets/gameDataBase/rooms/Buildings/{room_name}.xml')
     root = tree.getroot()
     room_skins = root[1][0][0][0]
     room_ids = dict()
@@ -39,17 +47,17 @@ def get_uid():
 
 
 def generate_furniture_prefabs():
-    os.makedirs('./room/FurniturePrefabs')
+    os.makedirs(f'{path_to_vso}/FurniturePrefabs')
     shutil.copy2('templates/Room_aN_RoomName_Furniture_template.xml',
-                 f'room/Room_a{areal}_{room_name}_Furniture.xml')
+                 f'{path_to_vso}/Room_a{areal}_{room_name}_Furniture.xml')
     furniture_uid = str(get_uid())
-    link_object(furniture_uid, f'Room_a{areal}_{room_name}_Furniture', 'Background',  window.getroot()[0][4][4])
+    link_object(furniture_uid, f'Room_a{areal}_{room_name}_Furniture', 'Background', window.getroot()[0][4][4])
     window.getroot()[0][4][0][3].attrib['path'] = furniture_uid
     for i in range(len(room_ids)):
         purchase = list(room_ids)[i]
         shutil.copy2('templates/FurniturePrefab_template.xml',
-                     f'room/FurniturePrefabs/{room_name}_{purchase}.xml')
-        tree = ET.parse(f'room/FurniturePrefabs/{room_name}_{purchase}.xml')
+                     f'{path_to_vso}/FurniturePrefabs/{room_name}_{purchase}.xml')
+        tree = ET.parse(f'{path_to_vso}/FurniturePrefabs/{room_name}_{purchase}.xml')
         root = tree.getroot()
         root[0].attrib["name"] = f'{i}_{purchase}'
         root[0][0][0][1].attrib["entityId"] = str(get_uid())
@@ -71,11 +79,11 @@ def generate_furniture_prefabs():
             add_purchase(skin_path, purchase_path, redesign_path, purchase, skin[1], skin[0])
         if redesign_node:
             create_redesign_node(root, redesign_uid)
-        tree.write(f'room/FurniturePrefabs/{room_name}_{purchase}.xml')
-        furniture_tree = ET.parse(f'room/Room_a{areal}_{room_name}_Furniture.xml')
+        tree.write(f'{path_to_vso}/FurniturePrefabs/{room_name}_{purchase}.xml')
+        furniture_tree = ET.parse(f'{path_to_vso}/Room_a{areal}_{room_name}_Furniture.xml')
         furniture = furniture_tree.getroot()[0]
         link_object(purchase_obj_id, f'{room_name}_{purchase}', f'{i}_{purchase}', furniture)
-        furniture_tree.write(f'room/Room_a{areal}_{room_name}_Furniture.xml')
+        furniture_tree.write(f'{path_to_vso}/Room_a{areal}_{room_name}_Furniture.xml')
 
 
 def link_object(obj_id, linked_object, node_name, root):
@@ -167,14 +175,14 @@ def add_purchase(skin_path, purchase_path, redesign_path, purchase, skin, is_red
 
 
 def generate_choose_icons():
-    os.makedirs('./room/ChoosePanelPrefabs')
+    os.makedirs(f'{path_to_vso}/ChoosePanelPrefabs')
     choose_panel = window.getroot()[0][4][7][2][1][0]
     for purchase in room_ids:
         for skin in room_ids[purchase]:
             if skin[0]:
                 icon_name = f'Icon_{room_name}_{purchase}{skin[1][-1]}'
                 shutil.copy2('templates/Icon_Room_template.xml',
-                             f'room/ChoosePanelPrefabs/{icon_name}.xml')
+                             f'{path_to_vso}/ChoosePanelPrefabs/{icon_name}.xml')
                 ET.SubElement(choose_panel, 'viewInfo')
                 choose_panel[-1].attrib["type"] = "skinSelectorViewInfo"
                 ET.SubElement(choose_panel[-1],
@@ -182,7 +190,7 @@ def generate_choose_icons():
 
 
 def create_window_prefab():
-    tree = ET.parse(f'room/Room_a{areal}_{room_name}_Window.xml')
+    tree = ET.parse(window_prefab)
     root = tree.getroot()
     root[0].attrib['name'] = window_prefab[-4]
     return tree
