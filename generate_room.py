@@ -14,12 +14,12 @@ room_name = args.room_name
 areal = args.areal
 uids = []
 # window_prefab = f'room/Room_a{areal}_{room_name}_Window.xml'
-path_to_vso = f'../../base1/Areal{areal}_Room_{room_name}/assets/Areal{areal}_Room_{room_name}/vso'
+path_to_vso = f'/../../base1/Areal{areal}_Room_{room_name}/assets/Areal{areal}_Room_{room_name}/vso'
 window_prefab = f'{path_to_vso}/Room_a{areal}_{room_name}_Window.xml'
 
 
 def get_purchase_ids():
-    tree = ET.parse(f'../../base/assets/gameDataBase/rooms/Buildings/{room_name}.xml')
+    tree = ET.parse(f'/../../base/assets/gameDataBase/rooms/Buildings/{room_name}.xml')
     root = tree.getroot()
     room_skins = root[1][0][0][0]
     room_ids = dict()
@@ -52,7 +52,7 @@ def generate_furniture_prefabs():
                  f'{path_to_vso}/Room_a{areal}_{room_name}_Furniture.xml')
     furniture_uid = str(get_uid())
     link_object(furniture_uid, f'Room_a{areal}_{room_name}_Furniture', 'Background', window.getroot()[0][4][4])
-    window.getroot()[0][4][0][3].attrib['path'] = furniture_uid
+    window.getroot()[0][4][0][0][3].attrib['path'] = furniture_uid
     for i in range(len(room_ids)):
         purchase = list(room_ids)[i]
         shutil.copy2('templates/FurniturePrefab_template.xml',
@@ -197,7 +197,6 @@ def create_window_prefab():
 
 
 if __name__ == '__main__':
-    os.makedirs('./room')
     shutil.copy2('templates/Room_aN_RoomName_Window_template.xml', window_prefab)
     window = create_window_prefab()
     room_ids = get_purchase_ids()
