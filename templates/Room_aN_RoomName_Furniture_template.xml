@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<asset assetType="sceneObject" changesEnabled="Disabled">
+	<!--comics: 2-->
+	<!--effectBehaviour: 1-->
+	<!--fixes: 5-->
+	<!--gears: 1-->
+	<!--m3c: 29-->
+	<!--physics: 2-->
+	<!--quests: 1-->
+	<!--roomDesign: 7-->
+	<!--vso: 69-->
+	<!--windowManagement: 2-->
+	<!--ws: 7-->
+	<!--wsGround: 3-->
+	<!--wsGroupAnimationController: 1-->
+	<!--wsInteractiveScene: 1-->
+	<!--wsMainHUDItemEffect: 1-->
+	<!--wsQuiz: 1-->
+	<!--wsSceneObjectRef: 19-->
+	<root name="Background">
+		<behaviours type="anchoredElement">
+			<ptr autoAttachToParent="true">
+				<horizontalAnchor nrp_1="0.5" offset_1="-1100.0" offset_2="2200.0" />
+				<normalizedPivot x="0.5" y="0.5" />
+				<uid entityId="1476363995" />
+				<verticalAnchor nrp_1="0.5" offset_1="-612.0" offset_2="1224.0" />
+			</ptr>
+		</behaviours>
+		<children name="Background">
+			<behaviours type="anchoredElement">
+				<ptr>
+					<anchorTarget path="1476363995" />
+					<horizontalAnchor nrp_1="0.5" offset_1="-1100.0" offset_2="2200.0" />
+					<uid entityId="2593755258" />
+					<verticalAnchor nrp_1="0.5" offset_1="-708.572" offset_2="692.0" />
+				</ptr>
+			</behaviours>
+			<component type="image">
+				<ptr>
+					<spriteOrTexture />
+					<uid entityId="1796490516" />
+				</ptr>
+			</component>
+			<transform />
+			<uid entityId="359006407" />
+		</children>
+		<sorting type="priority">
+			<ptr relativePriority="-10">
+				<uid entityId="3910766291" />
+			</ptr>
+		</sorting>
+		<transform />
+		<uid entityId="3928816045" />
+	</root>
+</asset>
