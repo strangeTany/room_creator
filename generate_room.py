@@ -104,8 +104,6 @@ def create_anchored_element(root):
     anchored_element = root[0]
     anchored_element.attrib['type'] = "anchoredElement"
     ET.SubElement(anchored_element, 'ptr')
-    anchored_element[0].attrib['attachToParentInStart'] = 'true'
-    anchored_element[0].attrib['autoAttachToParent'] = 'true'
     ET.SubElement(anchored_element[0], 'horizontalAnchor')
     anchored_element[0][0].attrib['nrp_1'] = '0.5'
     ET.SubElement(anchored_element[0], 'normalizedPivot')
