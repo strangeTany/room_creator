@@ -36,15 +36,19 @@ def decoration_export():
 def room_export():
     shadow = input('Input shadow suffix: ')
     for group in psd:
+        group.visible = True
         if group.is_group():
             os.makedirs(os.path.join(PATH, f'{FILENAME}_export', group.name))
             for obj in group:
+                obj.visible = True
                 if obj.is_group():
+                    os.makedirs(os.path.join(PATH, f'{FILENAME}_export', group.name, obj.name))
+
                     for layer in obj:
-                        os.makedirs(os.path.join(PATH, f'{FILENAME}_export', group.name, obj.name))
+                        layer.visible = True
                         filename = f'{layer.name}_{obj.name}.png'
                         path = os.path.join(PATH, f'{FILENAME}_export', group.name, obj.name, filename)
-                        export_layer(obj, shadow, path)
+                        export_layer(layer, shadow, path)
                 else:
                     export_layer(obj, shadow, os.path.join(PATH, f'{FILENAME}_export', group.name, f'{obj.name}.png'))
         else:
