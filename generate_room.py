@@ -190,7 +190,7 @@ def generate_choose_icons():
 def create_window_prefab():
     tree = ET.parse(window_prefab)
     root = tree.getroot()
-    root[0].attrib['name'] = window_prefab[-4]
+    root[0].attrib['name'] = f'Room_a{areal}_{room_name}_Window'
     return tree
 
 
