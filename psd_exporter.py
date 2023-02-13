@@ -35,6 +35,7 @@ def decoration_export():
 
 def room_export():
     shadow = input('Input shadow suffix: ')
+    copy = input('Input copy suffix: ')
     for group in psd:
         group.visible = True
         if group.is_group():
@@ -52,13 +53,15 @@ def room_export():
                 else:
                     export_layer(obj, shadow, os.path.join(PATH, f'{FILENAME}_export', group.name, f'{obj.name}.png'))
         else:
-            export_layer(group, shadow, os.path.join(PATH, f'{FILENAME}_export', f'{group.name}.png'))
+            export_layer(group, shadow, copy, os.path.join(PATH, f'{FILENAME}_export', f'{group.name}.png'))
 
 
-def export_layer(layer, shadow, file_path):
+def export_layer(layer, shadow, copy, file_path):
     resize_value = 2
     if shadow in layer.name:
         resize_value = 4
+    if copy in layer.name:
+        return
     print(layer.name)
     image = layer.composite()
     (width, height) = (image.width // resize_value, image.height // resize_value)
